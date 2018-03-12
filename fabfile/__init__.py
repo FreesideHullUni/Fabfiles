@@ -36,5 +36,8 @@ def install_nvidia():
 def install_steam():
     sudo('dnf install -y steam')
 
+def update():
+    sudo('dnf -y update')
+
 def dconf():
     append('/etc/dconf/profile/user','service-db:keyfile/user')
