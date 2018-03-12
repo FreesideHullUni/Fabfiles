@@ -36,6 +36,9 @@ def install_nvidia():
 def install_steam():
     sudo('dnf install -y steam')
 
+def install_nano():
+    sudo('dnf install -y nano')
+
 def update():
     sudo('dnf -y update')
 
