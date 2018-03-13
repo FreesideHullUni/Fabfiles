@@ -45,7 +45,7 @@ def update():
 def dconf():
     append('/etc/dconf/profile/user','service-db:keyfile/user')
 
-def install_neovim();
+def install_neovim():
     sudo('dnf install -y neovim')
     sudo('dnf install -y python-neovim')
     sudo('dnf install -y python3-neovim')
