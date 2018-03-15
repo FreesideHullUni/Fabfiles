@@ -9,12 +9,12 @@ Using the fabric _FabFile_ in this repository is easy. Here's how:
 
 Run a task:
 ```bash
-fab -R {desktops,servers} taskname` 
+fab -R {desktops,servers} taskname 
 ```
 
 Example:
 ```bash
-fab -R desktops install_neovim` 
+fab -R desktops install_neovim
 ```
 
 ## Contributing
