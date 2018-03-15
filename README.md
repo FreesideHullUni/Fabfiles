@@ -24,7 +24,7 @@ Want some software installing on the Freeside computers? You've come to the righ
 2. Take a look at [fabfile/__init__.py](https://github.com/FreesideHull/Freeside-Fabfiles/blob/master/fabfile/__init__.py). 
 3. Press the edit button in the top-right.
 4. Figure out how to install the software you want on a standard _Fedora_ machine.
-5. Add a new function to the _Fabfile_ in the same vein that the existing ones that installs the software you want. We prefer it if the software is available through `dnf`, _Fedora_'s official package manager. THat way it stays up-to-date automatically!
+5. Add a new function to the _Fabfile_ in the same vein that the existing ones that installs the software you want. We prefer it if the software is available through `dnf`, _Fedora_'s official package manager. That way it stays up-to-date automatically!
 6. Click _Propose File Change_ at the bottom of the page and follow it through to submit a _Pull Request_ for your changes.
 7. Once your pull request is accepted, then your software will automatically get installed on the Freeside computers through a git hook.
 8. You're done!
