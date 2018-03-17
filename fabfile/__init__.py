@@ -65,3 +65,6 @@ def install_android_studio():
     '\nExec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp /opt/android-studio/bin/studio.sh'
     '\nTerminal=false'
     '\nCategories=Development;IDE;',use_sudo=True)
+
+def install_okular():
+    sudo('dnf install -y okular')
