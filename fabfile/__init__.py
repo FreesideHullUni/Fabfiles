@@ -9,7 +9,8 @@ env.roledefs = {
 def install_vscode():
     sudo('rpm --import https://packages.microsoft.com/keys/microsoft.asc')
 
-    append('/etc/yum.repos.d/vscode.repo', '[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\n'
+    append('/etc/yum.repos.d/vscode.repo', '[code]\nname=Visual Studio Code'
+                                '\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\n'
                                 'enabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc')
     sudo('dnf install -y code')
     sudo('dnf install -y mono-devel')
@@ -50,3 +51,17 @@ def install_neovim():
     sudo('dnf install -y python-neovim')
     sudo('dnf install -y python3-neovim')
 
+def install_android_studio():
+    version = '3.0.1.0'
+    release = 'android-studio-ide-171.4443003-linux.zip'
+    sudo('dnf install -y qemu-kvm android-tools libstdc++.i686 zlib.i686')
+    run('wget https://dl.google.com/dl/android/studio/ide-zips/{}/{}'.format(version, release))
+    sudo('unzip -q {} -d /opt/'.format(release))
+    run('rm -r {}'.format(release))
+    append('/usr/local/share/applications/android-studio.desktop', '[Desktop Entry]'
+    '\nType=Application'
+    '\nName=Android Studio'
+    '\nIcon=/opt/android-studio/bin/studio.png'
+    '\nExec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp /opt/android-studio/bin/studio.sh'
+    '\nTerminal=false'
+    '\nCategories=Development;IDE;')
