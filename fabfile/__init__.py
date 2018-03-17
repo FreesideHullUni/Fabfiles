@@ -11,7 +11,7 @@ def install_vscode():
 
     append('/etc/yum.repos.d/vscode.repo', '[code]\nname=Visual Studio Code'
                                 '\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\n'
-                                'enabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc')
+                                'enabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc',use_sudo=True)
     sudo('dnf install -y code')
     sudo('dnf install -y mono-devel')
     sudo('dnf copr -y enable @dotnet-sig/dotnet')
@@ -64,4 +64,4 @@ def install_android_studio():
     '\nIcon=/opt/android-studio/bin/studio.png'
     '\nExec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp /opt/android-studio/bin/studio.sh'
     '\nTerminal=false'
-    '\nCategories=Development;IDE;')
+    '\nCategories=Development;IDE;',use_sudo=True)
