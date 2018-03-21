@@ -68,3 +68,6 @@ def install_android_studio():
 
 def install_okular():
     sudo('dnf install -y okular')
+
+def install_svn():
+    sudo('dnf install -y svn')
