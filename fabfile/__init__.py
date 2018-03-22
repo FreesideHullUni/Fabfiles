@@ -69,9 +69,12 @@ def install_android_studio():
 def install_okular():
     sudo('dnf install -y okular')
 
-
 def install_texstudio():
     sudo('dnf install -y texlive-scheme-full texstudio')
     
 def install_svn():
     sudo('dnf install -y svn')
+    
+def deploy_ff_policy():
+    with cd('/usr/lib64/firefox/'):
+        put('distFiles/firefox/distribution.ini', 'distribution/', use_sudo=True)
