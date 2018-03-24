@@ -11,10 +11,13 @@ Run a task:
 ```bash
 fab -R {desktops,servers} taskname 
 ```
-
+List tasks
+```bash
+fab -l
+```
 Example:
 ```bash
-fab -R desktops install_neovim
+fab -R desktops install.app.neovim
 ```
 
 ## Contributing
