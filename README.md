@@ -1,5 +1,7 @@
 # Freeside-Fabfiles
 
+![https://ci.freeside.co.uk/FreesideHull/Freeside-Fabfiles](https://ci.freeside.co.uk/api/badges/FreesideHull/Freeside-Fabfiles/status.svg)
+
 > The official _Fabfile_ for Freeside.
 
 A _FabFile_ is a configuration file for [fabric](http://www.fabfile.org/) a way of automatically deploying commands on many machines at once. If you'd like some software installed or a configuration changed on the Freeside machines, then it's the _Fabfile_ in this repository that you'll want to edit! See the instructions below for more details.
