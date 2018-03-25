@@ -14,4 +14,4 @@ def all():
     app.discord()
     app.nvidia()
     app.steam()
-    app.nano()
+
