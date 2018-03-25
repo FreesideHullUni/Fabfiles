@@ -5,12 +5,14 @@ fab --list --short > ~/tasks_before
 git reset --hard $head
 fab --list --short > ~/tasks_after
 
-echo "New tasks to run:"
-comm -13 --nocheck-order ~/tasks_before ~/tasks_after
 
 compare=$(comm -13 --nocheck-order ~/tasks_before ~/tasks_after)
 
+echo "New tasks to run:"
 echo "$compare"
+
+IFS='
+'
 
 for x in $compare; do
    fab install -R desktops "$x"
