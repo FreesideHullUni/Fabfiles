@@ -13,5 +13,5 @@ compare=$(comm -13 --nocheck-order ~/tasks_before ~/tasks_after)
 echo "$compare"
 
 for x in $compare; do
-   fab install -R desktops "$x" -p $SSH_PASSOWRD
+   fab install -R desktops "$x"
 done

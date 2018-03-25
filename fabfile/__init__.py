@@ -1,7 +1,10 @@
 from fabric.api import sudo, cd, put, env, task
 from fabric.contrib.files import append
 import install
+import os
 
+
+env.password = os.environ['SSH_PASSWORD']
 env.roledefs = {
     'desktops': ['fs-desktop-01', 'fs-desktop-02', 'fs-desktop-03'],
     'servers': ['ipa', 'docker', 'fs-web-02']
