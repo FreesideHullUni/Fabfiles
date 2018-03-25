@@ -88,3 +88,8 @@ def steam():
 @task
 def qutebrowser():
     install('qutebrowser')
+
+
+@task
+def nodejs():
+    install('nodejs')
