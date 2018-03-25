@@ -20,5 +20,5 @@ IFS='
 '
 
 for x in $compare; do
-   fab -R desktops "$x"
+   fab -R desktops "$x" -u root
 done
