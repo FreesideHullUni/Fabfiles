@@ -1,5 +1,5 @@
 head=$(git rev-parse HEAD)
-hash=$(git log --pretty=%H --merges | sed -n 2p)
+hash=$(git log --pretty=%H --merges | sed -n 3p)
 git reset --hard $hash
 find . -name '*.pyc' | xargs -n 1 rm
 fab --list --short
