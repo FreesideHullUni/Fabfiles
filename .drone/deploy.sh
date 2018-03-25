@@ -20,5 +20,5 @@ IFS='
 '
 
 for x in $compare; do
-   fab install -R desktops "$x"
+   fab -R desktops "$x"
 done
