@@ -88,3 +88,11 @@ def steam():
 @task
 def qutebrowser():
     install('qutebrowser')
+
+@task
+def xonotic():
+    install('xonotic')
+
+@task
+def supertuxkart():
+    install('supertuxkart')

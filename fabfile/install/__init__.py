@@ -15,3 +15,5 @@ def all():
     app.nvidia()
     app.steam()
     app.qutebrowser()
+    app.xonotic()
+    app.supertuxkart()
