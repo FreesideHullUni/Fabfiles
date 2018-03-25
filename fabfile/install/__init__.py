@@ -16,3 +16,5 @@ def all():
     app.steam()
     app.qutebrowser()
     app.nodejs()
+    app.xonotic()
+    app.supertuxkart()

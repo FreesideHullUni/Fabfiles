@@ -93,3 +93,13 @@ def qutebrowser():
 @task
 def nodejs():
     install('nodejs')
+
+
+@task
+def xonotic():
+    install('xonotic')
+
+
+@task
+def supertuxkart():
+    install('supertuxkart')
