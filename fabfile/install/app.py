@@ -73,14 +73,25 @@ def discord():
 
 
 @task
-def nvidia():
+def rpmfusion():
     install('https://download1.rpmfusion.org/free/fedora/'
             'rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm '
             'https://download1.rpmfusion.org/nonfree/fedora/'
             'rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm')
-    install('xorg-x11-drv-nvidia akmod-nvidia '
-            'xorg-x11-drv-nvidia-cuda')
 
+
+@task
+def ffmpeg():
+    install('ffmpeg')
+
+
+@task
+def nvidia():
+    sudo('dnf config-manager --add-repo='
+         'https://negativo17.org/repos/'
+         'fedora-nvidia.repo')
+    install('nvidia-settings kernel-devel dkms-nvidia vulkan.i686 '
+         'nvidia-driver-libs.i686')
 
 @task
 def steam():

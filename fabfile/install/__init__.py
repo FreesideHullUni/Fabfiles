@@ -18,3 +18,6 @@ def all():
     app.nodejs()
     app.xonotic()
     app.supertuxkart()
+    app.rpmfusion()
+    app.ffmpeg()
+    app.nvidia()
