@@ -91,7 +91,8 @@ def nvidia():
          'https://negativo17.org/repos/'
          'fedora-nvidia.repo')
     install('nvidia-settings kernel-devel dkms-nvidia vulkan.i686 '
-         'nvidia-driver-libs.i686')
+            'nvidia-driver-libs.i686')
+
 
 @task
 def steam():
