@@ -1,7 +1,6 @@
 # Freeside-Fabfiles
 
-[![Build Status](https://ci.freeside.co.uk/FreesideHull/Freeside-Fabfiles)](https://ci.freeside.co.uk/FreesideHull/Freeside-Fabfiles)
-
+[![Build Status](https://ci.freeside.co.uk/api/badges/FreesideHull/Freeside-Fabfiles/status.svg)](https://ci.freeside.co.uk/FreesideHull/Freeside-Fabfiles)
 
 > The official _Fabfile_ for Freeside.
 
