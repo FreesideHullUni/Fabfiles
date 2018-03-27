@@ -14,7 +14,6 @@ pipeline:
     commands:
      - dnf install -y nc net-tools python2
      - pip install -r requirements.txt
-     - bash common/wakeup.sh
      - bash common/deploy.sh
     when:
       branch: [master]
