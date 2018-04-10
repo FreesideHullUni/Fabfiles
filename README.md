@@ -26,11 +26,12 @@ fab -R desktops install.app.neovim
 Want some software installing on the Freeside computers? You've come to the right place! Here's a simple guide on how to request software to be installed:
 
 1. Make sure you're logged into your GitHub account.
-2. Take a look at [fabfile/__init__.py](https://github.com/FreesideHull/Freeside-Fabfiles/blob/master/fabfile/__init__.py). 
+2. Take a look at [`fabfile/desktop/install.py`](https://github.com/FreesideHull/Freeside-Fabfiles/blob/master/fabfile/desktop/install.py).
 3. Press the edit button in the top-right.
 4. Figure out how to install the software you want on a standard _Fedora_ machine.
 5. Add a new function to the _Fabfile_ in the same vein that the existing ones that installs the software you want. We prefer it if the software is available through `dnf`, _Fedora_'s official package manager. That way it stays up-to-date automatically!
 6. Click _Propose File Change_ at the bottom of the page and follow it through to submit a _Pull Request_ for your changes.
-7. Once your pull request is accepted, then your software will get installed by an Admin. (This may be automated in the future)
-8. ????
-9. Profit
+7. Take a look at [`fabfile/desktop/__init__.py`](https://github.com/FreesideHull/Freeside-Fabfiles/blob/master/fabfile/desktop/__init__.py). 
+8. Add a task to the `all()` function that calls your new install function.
+9. Create a _Pull Request_ for this as before.
+10. Once your pull requests are accepted, then your software will get installed automatically within a few minutes!
