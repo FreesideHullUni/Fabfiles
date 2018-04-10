@@ -10,7 +10,7 @@ def nano():
 
 @task
 def htop():
-	install('htop')
+    install('htop')
 
 
 @task
@@ -122,4 +122,3 @@ def xonotic():
 @task
 def supertuxkart():
     install('supertuxkart')
-
