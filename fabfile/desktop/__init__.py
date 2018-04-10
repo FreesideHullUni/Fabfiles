@@ -21,3 +21,4 @@ def all():
     install.rpmfusion()
     install.ffmpeg()
     install.nvidia()
+    install.htop()
