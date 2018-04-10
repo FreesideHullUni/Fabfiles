@@ -4,7 +4,7 @@ import desktop
 import os
 
 
-env.password = os.environ['SSH_PASSWORD']
+env.password = os.environ.get('SSH_PASSWORD', '')
 env.roledefs = {
     'desktops': ['fs-desktop-01', 'fs-desktop-02', 'fs-desktop-03'],
     'servers': ['ipa', 'docker', 'fs-web-02']
@@ -44,3 +44,4 @@ def deploy_ff_policy():
 def wol_setup():
     append('/etc/sysconfig/network-scripts/ifcfg-eno1',
            'ETHTOOL_OPTIONS="wol g"')
+

@@ -7,9 +7,11 @@ from ..fedora import install
 def nano():
     install('nano')
 
+
 @task
 def htop():
 	install('htop')
+
 
 @task
 def neovim():
@@ -120,3 +122,4 @@ def xonotic():
 @task
 def supertuxkart():
     install('supertuxkart')
+
