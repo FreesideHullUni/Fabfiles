@@ -12,7 +12,6 @@ pipeline:
     image: python:${PYTHON_VERSION}
     secrets: [ssh_password]
     commands:
-     - pip install -r requirements.txt
      - bash common/deploy.sh
     when:
       branch: [master]
