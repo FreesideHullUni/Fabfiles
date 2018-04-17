@@ -24,11 +24,11 @@ def update():
 @task
 def dconf():
     append('/etc/dconf/profile/user', 'service-db:keyfile/user', use_sudo=True)
-    append('/etc/dconf/profile/gdm', 'user-db:user'
-           'system-db:gdm'
+    append('/etc/dconf/profile/gdm', 'user-db:user\n'
+           'system-db:gdm\n'
            'file-db:/usr/share/gdm/greeter-dconf-defaults', use_sudo=True)
     sudo('mkdir /etc/dconf/db/gdm.d')
-    append('/etc/dconf/db/gdm.d/00-login-screen', '[org/gnome/login-screen]'
+    append('/etc/dconf/db/gdm.d/00-login-screen', '[org/gnome/login-screen]\n'
            'disable-user-list=true', use_sudo=True)
     sudo('dconf update')
 
