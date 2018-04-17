@@ -6,6 +6,14 @@
 
 A _FabFile_ is a configuration file for [fabric](http://www.fabfile.org/) a way of automatically deploying commands on many machines at once. If you'd like some software installed or a configuration changed on the Freeside machines, then it's the _Fabfile_ in this repository that you'll want to edit! See the instructions below for more details.
 
+## Setup
+```bash
+git clone https://github.com/FreesideHull/Freeside-Fabfiles
+virtualenv .venv
+. ./.venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## Usage
 Using the fabric _FabFile_ in this repository is easy. Here's how:
 
