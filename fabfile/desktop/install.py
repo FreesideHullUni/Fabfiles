@@ -101,6 +101,7 @@ def nvidia():
 
 @task
 def steam():
+    sudo('dnf config-manager --add-repo=https://negativo17.org/repos/fedora-steam.repo')
     install('steam')
 
 
