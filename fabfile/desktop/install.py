@@ -1,32 +1,60 @@
-from fabric.api import sudo, run, task
-from fabric.contrib.files import append
+from invoke import task, Exit
+from fabric2 import Connection
+from fabric2.transfer import Transfer
+from patchwork.files import append
+
 from ..fedora import install
 
 
 @task
-def nano():
-    install('nano')
+def all(c):
+    nano(c)
+    neovim(c)
+    android_studio(c)
+    vscode(c)
+    okular(c)
+    texstudio()
+    svn(c)
+    discord(c)
+    nvidia(c)
+    steam(c)
+    qutebrowser(c)
+    nodejs(c)
+    xonotic(c)
+    supertuxkart(c)
+    rpmfusion(c)
+    ffmpeg(c)
+    nvidia(c)
+    htop(c)
 
 
 @task
-def htop():
-    install('htop')
+def nano(c):
+    install(c,'nano')
 
 
 @task
-def neovim():
-    install('neovim python-neovim python3-neovim')
+def htop(c):
+    install(c,'htop')
 
 
 @task
-def android_studio():
+def neovim(c):
+    install(c,'neovim python-neovim python3-neovim')
+
+
+@task
+def android_studio(c):
     version = '3.0.1.0'
     release = 'android-studio-ide-171.4443003-linux.zip'
-    install('qemu-kvm android-tools libstdc++.i686 zlib.i686')
-    run('wget https://dl.google.com/dl/android/studio/ide-zips/{}/{}'
+
+    c.install(c,'qemu-kvm android-tools libstdc++.i686 zlib.i686')
+
+    c.run('wget https://dl.google.com/dl/android/studio/ide-zips/{}/{}'
         .format(version, release))
-    sudo('unzip -q {} -d /opt/'.format(release))
-    run('rm -r {}'.format(release))
+    c.sudo('unzip -q {} -d /opt/'.format(release))
+    c.run('rm -r {}'.format(release))
+
     append('/usr/local/share/applications/android-studio.desktop',
            '[Desktop Entry]'
            '\nType=Application'
@@ -39,87 +67,92 @@ def android_studio():
 
 
 @task
-def vscode():
-    sudo('rpm --import https://packages.microsoft.com/keys/microsoft.asc')
+def vscode(c):
+    c.sudo('rpm --import https://packages.microsoft.com/keys/microsoft.asc')
 
     append('/etc/yum.repos.d/vscode.repo', '[code]\nname=Visual Studio Code'
            '\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\n'
            'enabled=1\ngpgcheck=1'
            '\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc',
            use_sudo=True)
-    install('code')
-    install('mono-devel')
-    sudo('dnf copr -y enable @dotnet-sig/dotnet')
-    install('dotnet-sdk-2.0')
-    install('dotnet-runtime-2.0')
+
+    install(c,'code')
+    install(c,'mono-devel')
+
+    c.sudo('dnf copr -y enable @dotnet-sig/dotnet')
+
+    install(c,'dotnet-sdk-2.0')
+    install(c,'dotnet-runtime-2.0')
 
 
 @task
-def okular():
-    install('okular')
+def okular(c):
+    install(c,'okular')
 
 
 @task
-def texstudio():
-    install('texlive-scheme-full texstudio')
+def texstudio(c):
+    install(c,'texlive-scheme-full texstudio')
 
 
 @task
-def svn():
-    install('svn')
+def svn(c):
+    install(c,'svn')
 
 
 @task
-def discord():
-    sudo('dnf copr -y enable tcg/discord')
-    install('Discord-installer')
+def discord(c):
+    c.sudo('dnf copr -y enable tcg/discord')
+    install(c,'Discord-installer')
     sudo('systemctl enable discord-installer')
     sudo('systemctl start discord-installer')
 
 
 @task
-def rpmfusion():
-    install('https://download1.rpmfusion.org/free/fedora/'
+def rpmfusion(c):
+    install(c,'https://download1.rpmfusion.org/free/fedora/'
             'rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm '
             'https://download1.rpmfusion.org/nonfree/fedora/'
             'rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm')
 
 
 @task
-def ffmpeg():
-    install('ffmpeg')
+def ffmpeg(c):
+    install(c,'ffmpeg')
 
 
 @task
-def nvidia():
-    sudo('dnf config-manager --add-repo='
+def nvidia(c):
+    c.sudo('dnf config-manager --add-repo='
          'https://negativo17.org/repos/'
          'fedora-nvidia.repo')
-    install('nvidia-settings kernel-devel dkms-nvidia vulkan.i686 '
+    install(c,'nvidia-settings kernel-devel dkms-nvidia vulkan.i686 '
             'nvidia-driver-libs.i686')
 
 
-@task
-def steam():
-    sudo('dnf config-manager --add-repo=https://negativo17.org/repos/fedora-steam.repo')
-    install('steam')
-
 
 @task
-def qutebrowser():
-    install('qutebrowser')
+def qutebrowser(c):
+    install(c,'qutebrowser')
 
 
 @task
-def nodejs():
-    install('nodejs')
+def nodejs(c):
+    install(c,'nodejs')
+#
+# Games
+#
+@task
+def steam(c):
+    c.sudo('dnf config-manager --add-repo=https://negativo17.org/repos/fedora-steam.repo')
+    install(c,'steam')
 
 
 @task
-def xonotic():
-    install('xonotic')
+def xonotic(c):
+    install(c,'xonotic')
 
 
 @task
-def supertuxkart():
-    install('supertuxkart')
+def supertuxkart(c):
+    install(c,'supertuxkart')

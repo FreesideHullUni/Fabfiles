@@ -1,5 +1,6 @@
-from fabric.api import sudo
+from invoke import task
+from fabric2 import Connection
 
-
-def install(command):
-    sudo('dnf -y install ' + command)
+@task
+def install(c, pkg):
+    c.run('dnf -y install ' + pkg, pty=True)
