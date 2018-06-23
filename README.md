@@ -19,15 +19,24 @@ Using the fabric _FabFile_ in this repository is easy. Here's how:
 
 Run a task:
 ```bash
-fab -R {desktops,servers} taskname 
+$ fab -H comma,seperated,hosts taskname 
 ```
+
 List tasks
 ```bash
-fab -l
+$ fab -l
 ```
-Example:
+
+Example usage:
 ```bash
-fab -R desktops install.app.neovim
+$ fab -H fs-desktop01 install.app.neovim
+```
+
+Running multiple tasks in a collection:
+```bash
+# Installs all desktop apps
+$ source hosts
+$ fab -H "$desktops" $(fab --complete | grep "desktop.install")
 ```
 
 ## Contributing

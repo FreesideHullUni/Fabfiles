@@ -18,6 +18,6 @@ echo "$compare"
 IFS='
 '
 
-for x in $compare; do
-   fab -R desktops "$x" -u root
-done
+#for x in $compare; do
+#   fab -R desktops "$x" -u root
+#done
