@@ -1,2 +1,3 @@
-export servers=freeside.co.uk,ipa.freeside.co.uk
-export desktops=fs-desktop-01.freeside.co.uk
+export servers=freeside.co.uk,ipa.freeside.co.uk,storage.freeside.co.uk,docker.freeside.co.uk
+export desktops=fs-desktop-01.freeside.co.uk,fs-desktop-02.freeside.co.uk,fs-desktop-02.freeside.co.uk
+export all=$servers,$desktops
