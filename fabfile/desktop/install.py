@@ -25,8 +25,8 @@ def neovim(c):
 
 @task
 def android_studio(c):
-    version = "3.0.1.0"
-    release = "android-studio-ide-171.4443003-linux.zip"
+    version = "3.2.1.0"
+    release = "android-studio-ide-181.5056338-linux.zip"
 
 #    install(c, "qemu-kvm android-tools libstdc++.i686 zlib.i686")
     print("Downloading Android Studio, this might take a while")
@@ -47,7 +47,7 @@ def android_studio(c):
         "\nType=Application"
         "\nName=Android Studio"
         "\nIcon=/opt/android-studio/bin/studio.png"
-        "\nExec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp"
+        "\nExec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp "
         "/opt/android-studio/bin/studio.sh"
         "\nTerminal=false"
         "\nCategories=Development;IDE;",
