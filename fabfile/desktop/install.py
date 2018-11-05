@@ -73,8 +73,8 @@ def vscode(c):
 
     c.sudo("dnf copr -y enable @dotnet-sig/dotnet")
 
-    install(c, "dotnet-sdk-2.0")
-    install(c, "dotnet-runtime-2.0")
+    install(c, "dotnet-sdk-2.1")
+    install(c, "dotnet-runtime-2.1")
 
 
 @task
