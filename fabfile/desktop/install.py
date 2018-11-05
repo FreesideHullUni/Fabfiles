@@ -77,7 +77,7 @@ def vscode(c):
     install(c, "mono-devel")
     install(c, "mono-addins-devel") # msbuild
 
-    c.sudo("dnf copr -y enable @dotnet-sig/dotnet")
+    c.sudo("dnf copr -y disable @dotnet-sig/dotnet")
 
     install(c, "dotnet-sdk-2.1")
     install(c, "dotnet-runtime-2.1")
