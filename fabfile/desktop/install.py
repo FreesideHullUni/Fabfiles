@@ -67,7 +67,7 @@ def vscode(c):
     append(
         "/etc/yum.repos.d/vscode.repo",
         "[code]\nname=Visual Studio Code"
-        "\nbaseurl=https://packages.microsoft.com/yumrepos/vscode/n"
+        "\nbaseurl=https://packages.microsoft.com/yumrepos/vscode/\n"
         "enabled=1\ngpgcheck=1"
         "\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc",
         use_sudo=True,
