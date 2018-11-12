@@ -30,7 +30,7 @@ def dconf(c):
 
 @task
 def deploy_ff_policy(c):
-    with cd("/usr/lib64/firefox/"):
+    with c.cd("/usr/lib64/firefox/"):
         c.put("distFiles/firefox/distribution.ini", "distribution/", use_sudo=True)
 
 
