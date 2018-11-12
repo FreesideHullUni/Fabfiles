@@ -151,7 +151,11 @@ def nodejs(c):
 def sshguard(c):
     install(c, "autoconf automake byacc flex gcc python-docutils")
     with c.cd("/tmp"):
-        c.run("wget 'https://sourceforge.net/projects/sshguard/files/latest/download?source=files' -O sshguard.tar.gz")
+        sshguardurl = ("https://sourceforge.net/projects/"
+                       "sshguard/files/latest/"
+                       "download?source=files"
+                       )
+        c.run("wget '" + sshguardurl + "' -O sshguard.tar.gz")
         c.run("tar -xzf sshguard.tar.gz")
         with c.cd('sshguard-2.1.0'):
             c.run("./configure --prefix='/usr/local/'")
@@ -164,8 +168,9 @@ def sshguard(c):
 
 @task
 def steam(c):
+    steamrepourl = "https://negativo17.org/repos/fedora-steam.repo"
     c.sudo(
-        "dnf config-manager --add-repo=https://negativo17.org/repos/fedora-steam.repo"
+        "dnf config-manager --add-repo=" + steamrepourl
     )
     install(c, "steam")
 
