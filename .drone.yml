@@ -4,7 +4,7 @@ pipeline:
     commands:
      - pip install -r requirements.txt -r requirements-tests.txt
      - flake8 --version
-     - flake8 --ignore F401,W292
+     - flake8 --ignore E501,F401,W292,W293
     when:
       branch: [master]
       event: [push, pull_request]

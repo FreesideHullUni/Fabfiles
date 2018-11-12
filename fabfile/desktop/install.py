@@ -9,6 +9,7 @@ from ..fedora import install
 
 import os
 
+
 def nano(c):
     install(c, "nano")
 
@@ -33,7 +34,7 @@ def android_studio(c):
     if os.path.isfile(release) is False:
         wget.download(
             "https://dl.google.com/dl/android/studio/ide-zips/{}/{}".format(
-            version, release
+                version, release
             )
         )
     c.put(release, remote='/tmp/')
@@ -73,9 +74,9 @@ def vscode(c):
         use_sudo=True,
     )
 
-    install(c, "code") # VS Code itself
+    install(c, "code")  # VS Code itself
     install(c, "mono-devel")
-    install(c, "mono-addins-devel") # msbuild
+    install(c, "mono-addins-devel")  # msbuild
 
     c.sudo("dnf copr -y disable @dotnet-sig/dotnet")
 
@@ -102,8 +103,8 @@ def svn(c):
 def discord(c):
     c.sudo("dnf copr -y enable tcg/discord")
     install(c, "Discord-installer")
-    sudo("systemctl enable discord-installer")
-    sudo("systemctl start discord-installer")
+    c.sudo("systemctl enable discord-installer")
+    c.sudo("systemctl start discord-installer")
 
 
 @task
@@ -145,9 +146,10 @@ def qutebrowser(c):
 def nodejs(c):
     install(c, "nodejs")
 
+
 @task
 def sshguard(c):
-#    install(c, "autoconf automake byacc flex gcc python-docutils")
+    install(c, "autoconf automake byacc flex gcc python-docutils")
     with c.cd("/tmp"):
         c.run("wget 'https://sourceforge.net/projects/sshguard/files/latest/download?source=files' -O sshguard.tar.gz")
         c.run("tar -xzf sshguard.tar.gz")
@@ -158,6 +160,8 @@ def sshguard(c):
 #
 # Games
 #
+
+
 @task
 def steam(c):
     c.sudo(
