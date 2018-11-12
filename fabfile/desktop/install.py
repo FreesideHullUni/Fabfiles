@@ -57,25 +57,31 @@ def android_studio(c):
 
 @task
 def vscode(c):
+    # dotnet repo
     c.sudo("rpm --import https://packages.microsoft.com/keys/microsoft.asc")
-
+    c.sudo("wget -q https://packages.microsoft.com/config/fedora/27/prod.repo")
+    c.sudo("mv prod.repo /etc/yum.repos.d/microsoft-prod.repo")
+    c.sudo("chown root:root /etc/yum.repos.d/microsoft-prod.repo")
+    
+    # VC Code repo
     append(
         "/etc/yum.repos.d/vscode.repo",
         "[code]\nname=Visual Studio Code"
-        "\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\n"
+        "\nbaseurl=https://packages.microsoft.com/yumrepos/vscode/\n"
         "enabled=1\ngpgcheck=1"
         "\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc",
         use_sudo=True,
     )
 
-    install(c, "code")
+    install(c, "code") # VS Code itself
     install(c, "mono-devel")
+    install(c, "mono-addins-devel") # msbuild
 
-    c.sudo("dnf copr -y enable @dotnet-sig/dotnet")
+    c.sudo("dnf copr -y disable @dotnet-sig/dotnet")
 
-    install(c, "dotnet-sdk-2.0")
-    install(c, "dotnet-runtime-2.0")
-
+    install(c, "dotnet-sdk-2.1")
+    install(c, "dotnet-runtime-2.1")
+    
 
 @task
 def okular(c):
