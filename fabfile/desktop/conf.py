@@ -31,9 +31,16 @@ def dconf(c):
 @task
 def deploy_ff_policy(c):
     with c.cd("/usr/lib64/firefox/"):
-        c.put("distFiles/firefox/distribution.ini", "distribution/", use_sudo=True)
+        c.put(
+            "distFiles/firefox/distribution.ini",
+            "distribution/",
+            use_sudo=True
+        )
 
 
 @task
 def wol_setup(c):
-    c.append("/etc/sysconfig/network-scripts/ifcfg-eno1", 'ETHTOOL_OPTIONS="wol g"')
+    c.append(
+        "/etc/sysconfig/network-scripts/ifcfg-eno1",
+        'ETHTOOL_OPTIONS="wol g"'
+    )
