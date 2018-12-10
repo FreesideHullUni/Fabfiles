@@ -1,5 +1,5 @@
 #!/bin/bash -e
-pwd
+# NOTE: The current working directory is the root of the repository
 
 head=$(git rev-parse HEAD)
 hash=$(git log --pretty=%H --merges | sed -n 3p)
@@ -22,7 +22,7 @@ IFS='
 '
 
 # Wake up the machines
-./wakeup.sh
+./common/wakeup.sh
 
 # FUTURE: Could we do this in parallel?
 for x in $compare; do
