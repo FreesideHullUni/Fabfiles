@@ -18,6 +18,9 @@ echo "$compare"
 IFS='
 '
 
+# Wake up the machines
+./wakeup.sh
+
 #for x in $compare; do
 #   fab -R desktops "$x" -u root
 #done
