@@ -21,4 +21,4 @@ pipeline:
     secrets: [ discord_webhook_id, discord_webhook_token ]
 matrix:
   PYTHON_VERSION:
-    - 2.7
+    - 3.7
