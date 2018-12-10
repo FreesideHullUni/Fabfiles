@@ -1,5 +1,5 @@
 from invoke import task
-from fabric2 import Connection
+from fabric import Connection
 
 
 @task

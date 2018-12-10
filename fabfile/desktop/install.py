@@ -1,6 +1,6 @@
 from invoke import task, Exit, run as local
-from fabric2 import Connection
-from fabric2.transfer import Transfer
+from fabric import Connection
+from fabric.transfer import Transfer
 from patchwork.files import append
 
 import wget

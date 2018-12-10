@@ -1,6 +1,6 @@
 from invoke import task, Exit, Collection, Responder
-from fabric2 import Connection
-from fabric2.transfer import Transfer
+from fabric import Connection
+from fabric.transfer import Transfer
 from patchwork.files import append
 
 import os
