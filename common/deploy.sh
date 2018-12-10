@@ -21,6 +21,7 @@ IFS='
 # Wake up the machines
 ./wakeup.sh
 
-#for x in $compare; do
-#   fab -R desktops "$x" -u root
-#done
+# FUTURE: Could we do this in parallel?
+for x in $compare; do
+   fab -R desktops "$x" -u root
+done
