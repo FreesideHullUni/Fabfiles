@@ -1,3 +1,6 @@
+#!/bin/bash -e
+pwd
+
 head=$(git rev-parse HEAD)
 hash=$(git log --pretty=%H --merges | sed -n 3p)
 git reset --hard $hash

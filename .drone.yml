@@ -12,7 +12,7 @@ pipeline:
     image: python:${PYTHON_VERSION}
     secrets: [ssh_password]
     commands:
-     - bash common/deploy.sh
+     - bash -e common/deploy.sh
     when:
       branch: [master]
       event: [push]
