@@ -6,6 +6,9 @@
 
 A _FabFile_ is a configuration file for [fabric](http://www.fabfile.org/) a way of automatically deploying commands on many machines at once. If you'd like some software installed or a configuration changed on the Freeside machines, then it's the _Fabfile_ in this repository that you'll want to edit! See the instructions below for more details.
 
+## Architecture
+We use [Drone](https://drone.io/) as our continuous integration server. On every push , it pulls it down and checks the configuration with a tool called [Flake8](http://flake8.pycqa.org/en/latest/), to ensure there aren't any syntactical errors etc. Then, if it's ok and the push was to the `master` branch, it will automatically wake up the PCs in the Freeside lab, and deploy any updates to them.
+
 ## Setup
 ```bash
 git clone https://github.com/FreesideHull/Freeside-Fabfiles
