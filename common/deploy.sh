@@ -5,12 +5,12 @@ head=$(git rev-parse HEAD)
 hash=$(git log --pretty=%H --merges | sed -n 3p)
 git reset --hard $hash
 find . -name '*.pyc' -delete
-fab --list --short
-fab --list --short > ~/tasks_before
+fab --list
+fab --list | awk '/^\s+/ { print $1 }' > ~/tasks_before
 git reset --hard $head
 find . -name '*.pyc' -delete
-fab --list --short
-fab --list --short > ~/tasks_after
+fab --list
+fab --list | awk '/^\s+/ { print $1 }' > ~/tasks_after
 
 
 compare=$(comm -13 --nocheck-order ~/tasks_before ~/tasks_after)
