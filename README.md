@@ -1,3 +1,5 @@
+# Please see https://github.com/FreesideHull/Freeside-Fabfiles for an updated repo
+
 # Freeside-Fabfiles
 
 [![Build Status](https://ci.freeside.co.uk/api/badges/FreesideHull/Freeside-Fabfiles/status.svg)](https://ci.freeside.co.uk/FreesideHull/Freeside-Fabfiles)
